@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Midpoint Thumbnails",
+  "version": "1.4.0",
+  "description": "Replaces YouTube's uploader-chosen thumbnails with a frame from the middle of the video, and hides Shorts. Both toggle from the toolbar.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "yt-midpoint-thumbnails@tnch",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.youtube-nocookie.com/*"
+      ],
+      "js": [
+        "content.js",
+        "shorts.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "nav.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ],
+  "action": {
+    "default_title": "YouTube Midpoint Thumbnails",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  }
+}

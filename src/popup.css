@@ -1,0 +1,57 @@
+:root {
+  --bg: #ffffff;
+  --fg: #0f0f0f;
+  --muted: #606060;
+  --track: #c7c7c7;
+  --on: #cc0000;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #212121;
+    --fg: #f1f1f1;
+    --muted: #aaaaaa;
+    --track: #555555;
+    --on: #ff4e45;
+  }
+}
+body {
+  margin: 0;
+  padding: 14px 16px;
+  width: 280px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.35 system-ui, sans-serif;
+}
+.row + .row { margin-top: 14px; }
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+.text { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+small { color: var(--muted); font-size: 12px; }
+input { position: absolute; opacity: 0; pointer-events: none; }
+.switch {
+  flex: none;
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--track);
+  position: relative;
+  transition: background 0.15s;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s;
+}
+input:checked + .switch { background: var(--on); }
+input:checked + .switch::after { transform: translateX(16px); }
+input:focus-visible + .switch { outline: 2px solid var(--on); outline-offset: 2px; }

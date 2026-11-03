@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <label class="row">
+    <span class="text">
+      <strong>Midpoint thumbnails</strong>
+      <small data-for="enabled"
+             data-on="Showing a frame from halfway through each video"
+             data-off="Showing the uploader's thumbnails"></small>
+    </span>
+    <input type="checkbox" data-key="enabled" role="switch">
+    <span class="switch" aria-hidden="true"></span>
+  </label>
+  <label class="row">
+    <span class="text">
+      <strong>Hide Shorts</strong>
+      <small data-for="hideShorts"
+             data-on="Shorts are hidden; Shorts links open in the normal player"
+             data-off="Shorts are shown"></small>
+    </span>
+    <input type="checkbox" data-key="hideShorts" role="switch">
+    <span class="switch" aria-hidden="true"></span>
+  </label>
+  <script src="popup.js"></script>
+</body>
+</html>
